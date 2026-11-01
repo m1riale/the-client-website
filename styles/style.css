@@ -1,0 +1,158 @@
+:root {
+    --navy: #00002e;
+    --blauw: #1400f5;
+    --oranje: #f29a38;
+    --grijs: #d9d9d9;
+    --logo: #0a14b4;
+    --inkt: #1c1c1c;
+    --wit: #ffffff;
+    --font: "Barlow Condensed", "Oswald", "Arial Narrow", Impact, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: var(--font);
+    background: var(--navy);
+    color: var(--wit);
+  }
+
+ /* header mobiel */
+  .kop {
+    background: var(--wit);
+    padding: 3.25rem 1.25rem 0;
+  }
+  .kop__balk {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    display: block;
+    color: var(--logo);
+    text-decoration: none;
+    line-height: 1;
+  }
+  .logo__naam {
+    display: block;
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+  }
+  .logo__sub {
+    display: block;
+    margin-top: 0.15rem;
+    font-size: 0.4rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+  .kop__icons {
+    display: flex;
+    gap: 0.5rem;
+    color: var(--inkt);
+  }
+  .icoon-knop {
+    display: grid;
+    place-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    cursor: pointer;
+  }
+  .icoon-knop svg { width: 1.5rem; height: 1.5rem; }
+
+  .paginatitel {
+    margin: 0.75rem 0 0;
+    padding-bottom: 0.1rem;
+    text-align: center;
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1;
+    text-transform: uppercase;
+    color: var(--inkt);
+  }
+
+/* overzicht */
+  .overzicht { padding: 1.25rem 1rem 2rem; }
+
+  .overzicht__titel {
+    margin: 0 0 1.25rem;
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .auteurs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.6rem 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  /* kaartjes */
+  .kaart {
+    display: block;
+    text-decoration: none;
+    color: var(--wit);
+    background: var(--blauw);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.55);
+    transition: background-color 0.15s, box-shadow 0.15s, transform 0.15s;
+  }
+  .kaart__foto {
+    display: block;
+    aspect-ratio: 285 / 297;
+    background: var(--grijs);
+  }
+  .kaart__foto img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .kaart__naam {
+    display: flex;
+    align-items: center;
+    min-height: 3.6rem;
+    padding: 0.4rem 0.7rem;
+    font-size: 1.45rem;
+    font-weight: 800;
+    line-height: 1.05;
+    text-transform: uppercase;
+    overflow-wrap: anywhere;
+  }
+
+/* kaartjes HOVER */
+  .kaart:hover,
+  .kaart:active,
+  .kaart:focus-visible {
+    background: var(--oranje);
+    box-shadow: 6px 6px 0 rgba(160, 170, 215, 0.6);
+    transform: translate(-3px, -3px);
+    outline: none;
+  }
+  .kaart:focus-visible { outline: 3px solid var(--wit); outline-offset: 4px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .kaart { transition: none; }
+  }
+
+/* groter scherm */
+  @media (min-width: 700px) {
+    .kop { padding-inline: 2rem; }
+    .overzicht { padding: 2rem; }
+    .auteurs {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem 1.5rem;
+    }
+  }
+  @media (min-width: 1000px) {
+    .auteurs { grid-template-columns: repeat(4, 1fr); }
+  }
